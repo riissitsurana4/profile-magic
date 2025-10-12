@@ -60,6 +60,7 @@ export default function AdminPage() {
                     </Link>
                 </div>
                 <h1 className="text-4xl mb-4">Admin Login</h1>
+                <p className="mb-6 text-gray-400">AdminKey: 1234567890abcdef </p>
                 <form onSubmit={handleKeySubmit} className="flex flex-col items-center">
                     <input
                         type="text"

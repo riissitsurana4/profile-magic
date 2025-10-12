@@ -6,6 +6,13 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4">
+      <div className="absolute top-8 right-8 z-20">
+        <Link href="/api/admin/contacts" className="flex items-center">
+          <button className="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
+            Admin Panel
+          </button>
+        </Link>
+      </div>
       <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-gradient-to-br from-purple-200/20 to-pink-200/20 blur-3xl animate-pulse"></div>
       <div className="absolute bottom-32 right-16 w-80 h-80 rounded-full bg-gradient-to-br from-blue-200/20 to-indigo-200/20 blur-3xl animate-pulse"></div>
       <div className="absolute top-1/2 left-1/2 w-72 h-72 rounded-full bg-gradient-to-br from-pink-200/10 to-purple-200/10 blur-3xl animate-pulse -translate-x-1/2 -translate-y-1/2"></div>

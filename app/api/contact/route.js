@@ -11,6 +11,7 @@ export async function POST(request) {
         const body = await request.json();
         const user_name = (body.name || "").trim();
         const user_email = (body.email || "").trim().toLowerCase();
+        const user_subject = (body.subject || "").trim(); 
         const user_message = (body.message || "").trim();
 
         if (!user_name || !user_email || !user_message) {
@@ -30,8 +31,9 @@ export async function POST(request) {
             data: {
                 name: user_name,
                 email: user_email,
-                message: user_message,
-            },
+                subject: user_subject,
+                message: user_message
+            }
         });
 
         return NextResponse.json(
