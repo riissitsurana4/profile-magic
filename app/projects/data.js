@@ -10,7 +10,29 @@ export const projects = [
         demoLink: "/",
         githubLink: "https://github.com/riissitsurana4/profile-magic",
         status: "Completed",
-    }
+    },
+
+    {
+        id: 2,
+        title: "Expense Tracker",
+        description: "A expense tracker application to manage your finances.",
+        image: "/expensetracker.png",
+        tags: ["Next.js", "Bootstrap", "React"],
+        demoLink: "https://smartexpensehub.com",
+        githubLink: "https://github.com/riissitsurana4/ExpenseTracker",
+        status: "Completed",
+    },
+
+    {
+        id: 3,
+        title: "Musical YSWS",
+        description: "Website for the Musical YSWS.",
+        image: "/musical.png",
+        tags: ["Next.js", "Tailwind CSS", "React"],
+        demoLink: "https://musical-taupe.vercel.app/",
+        githubLink: "https://github.com/riissitsurana4/musical",
+        status: "In Progress",
+}
 ];
 
 

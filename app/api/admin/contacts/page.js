@@ -61,7 +61,7 @@ export default function AdminPage() {
                         <span>Back to Magic Realm</span>
                     </Link>
                 </div>
-                <h1 className="text-4xl mb-4">Admin Login</h1>
+                <h1 className="text-4xl mb-4 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Admin Login</h1>
                 <p className="mb-6 text-gray-400">AdminKey: 1234567890abcdef </p>
                 <form onSubmit={handleKeySubmit} className="flex flex-col items-center">
                     <input
