@@ -2,21 +2,23 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 export default function AdminPage() {
-    const [adminKey, setAdminKey] = useState(() => {
-        if (typeof window !== "undefined") {
-            return localStorage.getItem("adminKey") || "";
-        }
-        return "";
-    });
+    const [adminKey, setAdminKey] = useState("");
     const [input, setInput] = useState("");
     const [submissions, setSubmissions] = useState([]);
     const [error, setError] = useState("");
 
     useEffect(() => {
+        if (typeof window !== "undefined") {
+            const key = localStorage.getItem("adminKey") || "";
+            setAdminKey(key);
+        }
+    }, []);
+
+    useEffect(() => {
         if (!adminKey) return;
         async function fetchContacts() {
             try {
-                const res = await fetch("/api/admin", {
+                const res = await fetch("/api/admin/[id]", {
                     headers: {
                         Authorization: "Bearer " + adminKey
                     }
@@ -106,10 +108,53 @@ export default function AdminPage() {
                         {contact.submittedAt && (
                             <div className="mb-2"><span className="font-semibold text-purple-300">Submitted At:</span> {new Date(contact.submittedAt).toLocaleString()}</div>
                         )}
+                        <div className="flex gap-2 mt-2">
+                            {contact.status !== "READ" && (
+                                <button onClick={async () => {
+                                    await fetch(`/api/admin/${contact.id}`, {
+                                        method: "PATCH",
+                                        headers: { "Content-Type": "application/json", Authorization: "Bearer " + adminKey },
+                                        body: JSON.stringify({ status: "READ" })
+                                    });
+                                    window.location.reload();
+                                }}
+                                    className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded transition-colors"
+                                >
+                                    Mark as Read
+                                </button>
+                            )}
+                            {contact.status !== "REPLIED" && (
+                                <button
+                                    onClick={async () => {
+                                        await fetch(`/api/admin/${contact.id}`, {
+                                            method: "PATCH",
+                                            headers: { "Content-Type": "application/json", Authorization: "Bearer " + adminKey },
+                                            body: JSON.stringify({ status: "REPLIED" })
+                                        });
+                                        window.location.reload();
+                                    }}
+                                    className="bg-green-600 text-white px-2 py-1 rounded"
+                                >
+                                    Mark as Replied
+                                </button>
+                            )}
+                            <button
+                                onClick={async () => {
+                                    await fetch(`/api/admin/${contact.id}`, {
+                                        method: "DELETE",
+                                        headers: { Authorization: "Bearer " + adminKey }
+                                    });
+                                    window.location.reload();
+                                }}
+                                className="bg-red-600 text-white px-2 py-1 rounded"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 ))}
-            </section>
-        </main>
+        </section>
+        </main >
 
     );
 }
