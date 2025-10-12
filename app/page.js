@@ -40,12 +40,20 @@ export default function Home() {
         Full Stack Developer & Digital Wizard
       </p>
       
-      <div className="flex flex-col sm:flex-row gap-4 items-center">
-        <Link  href="/projects" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium py-3 px-8 rounded-lg text-center min-w-[160px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center max-w-md w-full">
+        <Link href="/about" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-3 px-8 rounded-lg text-center hover:scale-105 transition-transform duration-300">
+          About Me
+        </Link>
+
+        <Link href="/projects" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium py-3 px-8 rounded-lg text-center hover:scale-105 transition-transform duration-300">
            My Spell Book
         </Link>
 
-        <Link  href="/contact"  className="border-2 border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center min-w-[160px]">
+        <Link href="/blog" className="bg-gradient-to-r from-pink-600 to-purple-600 text-white font-medium py-3 px-8 rounded-lg text-center hover:scale-105 transition-transform duration-300">
+          Blog
+        </Link>
+
+        <Link href="/contact" className="border-2 border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 text-center">
           Contact Me
         </Link>
       </div>
