@@ -37,7 +37,7 @@ export default function Home() {
       </h1>
       
       <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 text-center">
-        Full Stack Developer & Digital Wizard
+        Full Stack Developer(Learner) & Digital Wizard
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center max-w-md w-full">
